@@ -23,11 +23,11 @@ namespace BankAccount
         
         //Lägg till Konstruktor
         
-        public BankAccount(string an, string ah, double ba, int code)
+        public BankAccount(string accountnumber, string accountholder, double balance, int code)
         {
-            AccountNumber = an;
-            AccountHolder = ah;
-            Balance = ba;
+            AccountNumber = accountnumber;
+            AccountHolder = accountholder;
+            Balance = balance;
             Code = code;
         }
         
