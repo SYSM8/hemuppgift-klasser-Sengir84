@@ -16,9 +16,9 @@ namespace BankAccount
         {
             //Instansiera bankAccount klassen och testa den
             //                                      Konto              Namn        saldo  kod
-            BankAccount account = new BankAccount("98465418", "Alexander Larsson", 1000, 1337);
+            BankAccount account = new BankAccount("98465418", "Alexander Larsson", 1000, 1234);
             
-            //loop för meny, count för antal försök 
+            //loop för meny, count för antal pin försök 
             bool loop = true;
             int count = 0;
             

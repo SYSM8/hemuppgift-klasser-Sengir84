@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -33,17 +34,24 @@ namespace BankAccount
         
         //Lägg till Metoder
         
-        //Metod för insättning
+        //Metod för insättning och felhantering av negativa tal
         public void Deposit(double deposit)
         {
-            Balance = Balance + deposit;
-            Console.WriteLine($"Insatt: {deposit} Saldo: {Balance} \nTryck enter för att fortsätta");
+            if (deposit >= 0)
+            {
+                Balance = Balance + deposit;
+                Console.WriteLine($"Insatt: {deposit} Saldo: {Balance} \nTryck enter för att fortsätta");
+            }
+            else if (deposit < 0)
+            {
+                Console.WriteLine($"Inga negativa nummer");
+            }
         }
         
-        //Metod för uttag
+        //Metod för uttag och felhantering för negativa tal
         public void Withdraw(double withdraw)
         {
-            if (withdraw <= Balance)
+            if (withdraw <= Balance && withdraw >= 0)
             {
                 Balance = Balance - withdraw;
                 Console.WriteLine($"Uttag: {withdraw} Saldo: {Balance} \nTryck enter för att fortsätta");
@@ -52,6 +60,11 @@ namespace BankAccount
             {
                 Console.WriteLine($"Uttaget saknar täckning. Du har: {Balance} på kontot \nTryck enter för att fortsätta");
             }
+            else if(withdraw < 0)
+            {
+                Console.WriteLine($"Inga negativa tal");
+            }
+            
         }
         //Metod för att kolla saldo       
         public void DisplayBalance()
